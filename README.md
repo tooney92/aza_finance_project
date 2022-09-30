@@ -9,12 +9,12 @@
 
 # How to run the app
 
-* Running bin/setup sets up the application, creates the DB and runs the necessary migrations.
+* Running "bin/setup" sets up the application, creates the DB and runs the necessary migrations.
 
-* How to run the test suite: running bin/ci runs the test suites or simply running "rspec".
+* How to run the test suite: running "bin/ci" runs the test suites or simply running "rspec".
 
-* How to start the app: running bin/run starts the application.
+* How to start the app: running "bin/run" starts the application.
 
-* Visit: http://localhost:3000/rails/info/routes so see the transaction endpoints.
+* Visit: "http://localhost:3000/rails/info/routes" so see the transaction endpoints.
 
 
