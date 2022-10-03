@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 echo "[ bin/ci ] Running  tests"
-rspec
+RAILS_ENV=test rspec
 echo "[ bin/ci ] Analyzing code for security vulnerabilities."
 echo "[ bin/ci ] Output will be in tmp/brakeman.html, which"
 echo "[ bin/ci ] can be opened in your browser."

@@ -1,9 +1,10 @@
 class Api::V1::TransactionsController < ApplicationController
 
   before_action :set_transaction, only: %i[show]
+  before_action :authenticate_request
 
   def index
-    @transactions = Transaction.all
+    @transactions = Transaction.page(params.fetch(:page))
   end
 
   def show; end

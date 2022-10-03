@@ -2,11 +2,6 @@ require 'rails_helper'
 
 RSpec.describe Transaction, type: :model do
 
-  # subject { described_class.new(
-  #   customer_id = 7,
-  #
-  # ) }
-
   let!(:subject){FactoryBot.build(:transaction)}
 
   it "is valid with valid attributes" do
