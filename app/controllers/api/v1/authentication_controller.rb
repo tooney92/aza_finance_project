@@ -1,6 +1,5 @@
 class Api::V1::AuthenticationController < ApplicationController
 
-
   def login
     @user = User.find_by_user_name(params[:user_name])
     if @user&.authenticate(params[:password])

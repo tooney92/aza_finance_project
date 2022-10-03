@@ -20,7 +20,6 @@ class ApplicationController < ActionController::API
     render json: { error: 'no token sent' }, status: :bad_request and return if header.nil?
 
     header = header.split(' ').last if header
-
     @current_user = jwt_decode(header)
   end
 end

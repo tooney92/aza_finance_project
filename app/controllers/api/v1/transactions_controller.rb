@@ -1,5 +1,6 @@
-class Api::V1::TransactionsController < ApplicationController
+# frozen_string_literal: true
 
+class Api::V1::TransactionsController < ApplicationController
   before_action :set_transaction, only: %i[show]
   before_action :authenticate_request
 
@@ -19,13 +20,14 @@ class Api::V1::TransactionsController < ApplicationController
     end
   end
 
-  private
+      private
 
   def set_transaction
     @transaction = Transaction.find(params[:id])
   end
 
   def transaction_params
-    params.require(:transaction).permit(:customer_id, :input_currency, :input_amount, :output_amount, :output_currency)
+    params.require(:transaction).permit(:customer_id, :input_currency, :input_amount, :output_amount,
+                                        :output_currency)
   end
 end
