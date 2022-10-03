@@ -1,9 +1,9 @@
-class ApplicationController < ActionController::API
+# frozen_string_literal: true
 
+class ApplicationController < ActionController::API
   include JsonWebToken
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
   rescue_from ActiveRecord::RecordNotUnique, with: :duplicate_record
-
 
   private
 
@@ -11,7 +11,7 @@ class ApplicationController < ActionController::API
     render json: { errors: error.message }, status: 404
   end
 
-  def duplicate_record(error)
+  def duplicate_record(_error)
     render json: { errors: 'user name already exists' }, status: 400
   end
 
@@ -23,6 +23,4 @@ class ApplicationController < ActionController::API
 
     @current_user = jwt_decode(header)
   end
-
-
 end
