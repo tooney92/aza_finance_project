@@ -49,7 +49,8 @@ RSpec.describe 'Api::V1::Transactions', type: :request do
           'input_currency',
           'output_amount',
           'output_currency',
-          'transaction_date'
+          'transaction_date',
+          'uuid'
         )
       end
     end
@@ -91,7 +92,8 @@ RSpec.describe 'Api::V1::Transactions', type: :request do
           'input_currency',
           'output_amount',
           'output_currency',
-          'transaction_date'
+          'transaction_date',
+          'uuid'
         )
       end
     end

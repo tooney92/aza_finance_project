@@ -6,4 +6,5 @@ json.transaction do
   json.output_amount @transaction.output_amount
   json.output_currency @transaction.output_currency
   json.transaction_date @transaction.created_at
+  json.uuid @transaction.uuid
 end
