@@ -96,6 +96,32 @@ RSpec.describe 'Api::V1::Transactions', type: :request do
           'uuid'
         )
       end
+
+      it 'updates the newly created  transaction' do
+        json = JSON.parse(response.body)
+        id = json['transaction']['transaction_id']
+        put "/api/v1/transactions/#{id}", params:
+          {
+            transaction: {
+              'input_amount': 45,
+            }
+          }, headers: { 'Authorization' => token }, xhr: true
+
+        expect(response).to have_http_status(:success)
+      end
+
+      it 'should not update with wrong input amount the newly created  transaction' do
+        json = JSON.parse(response.body)
+        id = json['transaction']['transaction_id']
+        put "/api/v1/transactions/#{id}", params:
+          {
+            transaction: {
+              'input_amount': 0,
+            }
+          }, headers: { 'Authorization' => token }, xhr: true
+
+        expect(response).to have_http_status(:bad_request)
+      end
     end
 
     context 'with invalid parameters' do
@@ -111,5 +137,17 @@ RSpec.describe 'Api::V1::Transactions', type: :request do
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end
+  end
+
+  xdescribe 'PUT /update' do
+
+    let!(:transaction) { FactoryBot.create(:transaction) }
+
+    before do
+      put "/api/v1/transactions/#{transaction.id}", params: {
+
+      }, headers: { 'Authorization' => token }, xhr: true
+    end
+
   end
 end
