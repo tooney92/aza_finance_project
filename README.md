@@ -18,3 +18,8 @@
 * Visit: "http://localhost:3000/rails/info/routes" so see the transaction endpoints.
 
 
+# Routes
+
+Endpoints documented on postman. 
+
+* API docs https://documenter.getpostman.com/view/9973912/2s83zcSmnY
